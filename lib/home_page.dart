@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              childAspectRatio: 0.5,
+                              childAspectRatio: 0.56,
                             ),
                             itemCount: filteredMovies.length,
                             itemBuilder: (context, index) {
@@ -99,14 +99,20 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.all(8),
                             itemCount: filteredMovies.length,
                             itemBuilder: (context, index) {
-                              // fixed height because the card image uses Expanded
-                              return SizedBox(
-                                height: 720,
-                                child: MovieCard(
-                                  movie: filteredMovies[index],
-                                  discount: discount,
-                                  onDiscountTap: decreaseDiscount,
-                                ),
+                              // height depends on the card width so the poster
+                              // keeps a 2:3 ratio and is not cropped
+                              return LayoutBuilder(
+                                builder: (context, constraints) {
+                                  final imageWidth = constraints.maxWidth - 16;
+                                  return SizedBox(
+                                    height: imageWidth * 1.5 + 76,
+                                    child: MovieCard(
+                                      movie: filteredMovies[index],
+                                      discount: discount,
+                                      onDiscountTap: decreaseDiscount,
+                                    ),
+                                  );
+                                },
                               );
                             },
                           ),
