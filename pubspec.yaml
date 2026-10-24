@@ -1,0 +1,33 @@
+name: movie_library
+description: "A Flutter app that shows a movie collection with search and list/grid layouts."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/posters/inception.jpg
+    - assets/posters/dark_knight.jpg
+    - assets/posters/interstellar.jpg
+    - assets/posters/godfather.jpg
+    - assets/posters/gladiator.jpg
+    - assets/posters/matrix.jpg
+    - assets/posters/forrest_gump.jpg
+    - assets/posters/joker.jpg
